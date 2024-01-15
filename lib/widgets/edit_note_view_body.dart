@@ -16,7 +16,7 @@ class EditNoteViewBody extends StatelessWidget {
             ),
             const CustomAppBar(
               text: 'Edit Note',
-              icon: Icons.coronavirus,
+              icon: Icons.check,
             ),
             const SizedBox(
               height: 30.0,

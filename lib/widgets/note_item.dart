@@ -35,11 +35,12 @@ class NoteItem extends StatelessWidget {
                   ),
                 ),
                 subtitle: const Padding(
-                  padding: EdgeInsets.only(top: 13),
+                  padding: EdgeInsets.only(top: 20),
                   child: Text(
                     'Build your Career with Ahmed Khodary',
+                    maxLines: 3,
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 15,
                       color: Colors.black54,
                     ),
                   ),
@@ -48,13 +49,13 @@ class NoteItem extends StatelessWidget {
                   onPressed: () {},
                   icon: const Icon(
                     Icons.delete,
-                    size: 35,
+                    size: 30,
                     color: Colors.black,
                   ),
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.only(right: 20),
+                padding: EdgeInsets.only(right: 17,top: 10),
                 child: Text(
                   'May 21,2022',
                   style: TextStyle(
