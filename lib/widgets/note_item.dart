@@ -8,9 +8,8 @@ class NoteItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(
-          context,EditNoteView.id
-        );
+        Navigator.push(context,
+      MaterialPageRoute(builder: (context) => const EditNoteView()));
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 10),
@@ -55,7 +54,7 @@ class NoteItem extends StatelessWidget {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.only(right: 17,top: 10),
+                padding: EdgeInsets.only(right: 17, top: 10),
                 child: Text(
                   'May 21,2022',
                   style: TextStyle(
