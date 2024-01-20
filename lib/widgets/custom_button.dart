@@ -3,9 +3,10 @@ import 'package:note_app/constants.dart';
 
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
-  CustomButton({super.key, this.onTap, required this.text});
+  CustomButton({super.key, this.onTap, required this.text,  this.isLoading=false});
   VoidCallback? onTap;
   String text;
+  final bool isLoading ;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -17,7 +18,14 @@ class CustomButton extends StatelessWidget {
         ),
         height: 60,
         child: Center(
-          child: Text(
+          child:isLoading? const SizedBox(
+            height: 24,
+            width: 24,
+            child: CircularProgressIndicator(
+              color: Colors.black,
+              
+            ),
+          ):Text(
             text,
             style: const TextStyle(
               color: Colors.black,
