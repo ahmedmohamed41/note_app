@@ -17,7 +17,8 @@ class AddNoteForm extends StatefulWidget {
 class _AddNoteFormState extends State<AddNoteForm> {
   final GlobalKey<FormState> formKay = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-
+  final DateTime now = DateTime.now();
+  
   String? title, subTitle;
   @override
   Widget build(BuildContext context) {
@@ -54,9 +55,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     var noteModel = NoteModel(
                       title: title!,
                       subTitle: subTitle!,
-                      date: DateTime.now().toString(),
+                      date: '${now.year}-${now.month}-${now.day}',
                       color: Colors.blue.value,
                     );
+                      setState(() {});
                     BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
                   } else {
                     autovalidateMode = AutovalidateMode.always;
@@ -66,7 +68,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
               );
             },
           ),
-           const SizedBox(
+          const SizedBox(
             height: 15,
           ),
         ],

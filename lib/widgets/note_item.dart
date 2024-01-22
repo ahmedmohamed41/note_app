@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/views/edit_note_view.dart';
 
+import '../models/note_model.dart';
+
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
+  const NoteItem({super.key, required this.note});
+
+  final NoteModel note;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.push(context,
-      MaterialPageRoute(builder: (context) => const EditNoteView()));
+            MaterialPageRoute(builder: (context) => const EditNoteView()));
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 10),
@@ -17,7 +21,7 @@ class NoteItem extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 20),
           height: 210,
           decoration: BoxDecoration(
-            color: Colors.amber[300],
+            color: Color(note.color),
             borderRadius: BorderRadius.circular(
               20,
             ),
@@ -26,19 +30,19 @@ class NoteItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               ListTile(
-                title: const Text(
-                  'Flutter Tips',
-                  style: TextStyle(
+                title: Text(
+                  note.title,
+                  style: const TextStyle(
                     fontSize: 20,
                     color: Colors.black,
                   ),
                 ),
-                subtitle: const Padding(
-                  padding: EdgeInsets.only(top: 20),
+                subtitle: Padding(
+                  padding: const EdgeInsets.only(top: 20),
                   child: Text(
-                    'Build your Career with Ahmed Khodary',
+                    note.subTitle,
                     maxLines: 3,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 15,
                       color: Colors.black54,
                     ),
@@ -53,11 +57,11 @@ class NoteItem extends StatelessWidget {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(right: 17, top: 10),
+              Padding(
+                padding: const EdgeInsets.only(right: 17, top: 10),
                 child: Text(
-                  'May 21,2022',
-                  style: TextStyle(
+                  note.date,
+                  style: const TextStyle(
                     fontSize: 13,
                     color: Colors.black54,
                   ),
