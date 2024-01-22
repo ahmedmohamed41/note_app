@@ -20,6 +20,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
   final DateTime now = DateTime.now();
   
   String? title, subTitle;
+ 
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -44,6 +45,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(
             height: 15,
           ),
+          
+          const SizedBox(
+            height: 15,
+          ),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
               return CustomButton(
@@ -56,9 +61,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
                       title: title!,
                       subTitle: subTitle!,
                       date: '${now.year}-${now.month}-${now.day}',
-                      color: Colors.blue.value,
+                      color:Colors.amber.value,
                     );
-                      setState(() {});
+                    setState(() {});
                     BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
                   } else {
                     autovalidateMode = AutovalidateMode.always;
@@ -76,3 +81,33 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
   }
 }
+
+// class ColorList extends StatelessWidget {
+//   ColorList({super.key});
+//   final List<Color> color = [
+//     Colors.amber,
+//     Colors.white,
+//     Colors.blue,
+//     Colors.red,
+//     Colors.white10,
+//   ];
+//   @override
+//   Widget build(BuildContext context) {
+//     return SizedBox(
+//       height: 30,
+//       child: ListView.builder(
+//         itemCount: 5,
+//         scrollDirection: Axis.horizontal,
+//         itemBuilder: (context, index) {
+//           return GestureDetector(
+//             onTap: () {},
+//             child: CircleAvatar(
+//               radius: 30,
+//               backgroundColor: color[index],
+//             ),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
