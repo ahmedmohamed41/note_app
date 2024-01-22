@@ -23,7 +23,7 @@ class NoteApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-     create: (context) => NotesCubit(),
+      create: (context) => NotesCubit(),
       child: MaterialApp(
         theme: ThemeData(brightness: Brightness.dark),
         home: const NotesView(),

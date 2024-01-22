@@ -8,12 +8,14 @@ class CustomTextField extends StatelessWidget {
       this.hintText,
       this.inputType,
       this.maxLines = 1,
-      this.onSaved});
+      this.onSaved,this.onChanged,
+      });
   String? labelText;
   String? hintText;
   int maxLines;
 
   final void Function(String?)? onSaved;
+  void Function(String)? onChanged;
   TextInputType? inputType;
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,7 @@ class CustomTextField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 5),
       child: TextFormField(
         onSaved: onSaved,
+        onChanged: onChanged,
         validator: (value) {
           if (value?.isEmpty ?? true) {
             return 'Field is required';

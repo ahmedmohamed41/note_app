@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CustomSearchIcon extends StatelessWidget {
-  const CustomSearchIcon({
+class CustomIcon extends StatelessWidget {
+  const CustomIcon({
     super.key,
-    required this.icon,
+    required this.icon, this.onPressed,
   });
+  final void Function()? onPressed;
   final IconData icon;
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class CustomSearchIcon extends StatelessWidget {
         ),
       ),
       child: IconButton(
-        onPressed: () {},
+        onPressed: onPressed,
         icon: Icon(
           icon,
           size: 30,
